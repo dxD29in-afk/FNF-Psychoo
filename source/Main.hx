@@ -139,7 +139,7 @@ class Main extends Sprite
 			}
 			msgInfo += ' $x';
 			if (PlayState.instance != null)
-				PlayState.instance.addTextToDebug('FATAL: $msgInfo', 0xFFBB0000);
+				PlayState.instance.addTextToDebug('FATAL: $msgInfo', 0xFFBBBBBB);
 		}
 		#end
 
@@ -153,7 +153,13 @@ class Main extends Sprite
 		});
 		#end
 		addChild(new FlxGame(game.width, game.height, #if COPYSTATE_ALLOWED !CopyState.checkExistingFiles() ? CopyState : #end game.initialState, game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
-
+var filter = new openfl.filters.ShaderFilter(new shaders.RetroShader());
+FlxG.signals.postStateSwitch.add(function() {
+	var menu = Std.isOfType(FlxG.state, states.TitleState)
+		|| Std.isOfType(FlxG.state, states.MainMenuState)
+		|| Std.isOfType(FlxG.state, options.OptionsState);
+	FlxG.game.setFilters(menu ? [filter] : []);
+});
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		Lib.current.stage.align = "tl";
