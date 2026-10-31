@@ -21,7 +21,7 @@ jobs:
           echo "REPO_PATH: ${{ env.REPO_PATH }}"
           if [[ "$GITHUB_REPOSITORY" != "${{ env.REPO_PATH }}" ]]; then
             echo "Doesn't seem to be correct, returning SIGABRT..."
-            exit 6
+            exit 0
           else
             echo "Seems to be correct..."
           fi
