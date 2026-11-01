@@ -161,7 +161,10 @@ FlxG.signals.postUpdate.add(function() {
 FlxG.signals.postStateSwitch.add(function() {
 	var menu = Std.isOfType(FlxG.state, states.TitleState)
 		|| Std.isOfType(FlxG.state, states.MainMenuState)
-		|| Std.isOfType(FlxG.state, options.OptionsState);
+		|| Std.isOfType(FlxG.state, options.OptionsState)
+	    || Std.isOfType(FlxG.state, states.StoryMenuState)
+	    || Std.isOfType(FlxG.state, states.AchievementsMenuState)
+	    || Std.isOfType(FlxG.state, states.LoadingState);
 	FlxG.game.setFilters(menu ? [filter] : []);
 });
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
