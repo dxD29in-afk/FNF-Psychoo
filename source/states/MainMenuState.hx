@@ -73,7 +73,7 @@ class MainMenuState extends MusicBeatState
 		magenta.updateHitbox();
 		magenta.screenCenter();
 		magenta.visible = false;
-		magenta.color = 0xFFfd719b;
+		magenta.color = 0xFF444444;
 		add(magenta);
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
