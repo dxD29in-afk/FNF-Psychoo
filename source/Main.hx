@@ -164,7 +164,8 @@ FlxG.signals.postStateSwitch.add(function() {
 		|| Std.isOfType(FlxG.state, options.OptionsState)
 	    || Std.isOfType(FlxG.state, states.StoryMenuState)
 	    || Std.isOfType(FlxG.state, states.AchievementsMenuState)
-	    || Std.isOfType(FlxG.state, states.LoadingState);
+	    || Std.isOfType(FlxG.state, states.LoadingState)
+	    || Std.isOfType(FlxG.state, states.FreeplayState);
 	FlxG.game.setFilters(menu ? [filter] : []);
 });
 		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
