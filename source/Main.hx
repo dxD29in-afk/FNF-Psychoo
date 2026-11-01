@@ -153,7 +153,11 @@ class Main extends Sprite
 		});
 		#end
 		addChild(new FlxGame(game.width, game.height, #if COPYSTATE_ALLOWED !CopyState.checkExistingFiles() ? CopyState : #end game.initialState, game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
-var filter = new openfl.filters.ShaderFilter(new shaders.RetroShader());
+var film = new shaders.FilmShader();
+var filter = new openfl.filters.ShaderFilter(film);
+FlxG.signals.postUpdate.add(function() {
+	film.uTime.value = [haxe.Timer.stamp() % 1000.0];
+});
 FlxG.signals.postStateSwitch.add(function() {
 	var menu = Std.isOfType(FlxG.state, states.TitleState)
 		|| Std.isOfType(FlxG.state, states.MainMenuState)
