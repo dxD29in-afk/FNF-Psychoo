@@ -78,14 +78,11 @@ class OptionsState extends MusicBeatState
 
 		for (num => option in options)
 		{
-			var optionText:Alphabet = new Alphabet(0, 0, Language.getPhrase('options_$option', option), true);
-	  optionText.color = 0xFFFFFFFF;
-	  optionText.screenCenter();
-	  grpOptions.add(optionText);
-  }
-			optionText.screenCenter();
-			optionText.y += (92 * (num - (options.length / 2))) + 45;
-			grpOptions.add(optionText);
+		var optionText:Alphabet = new Alphabet(0, 0, Language.getPhrase('options_$option', option), true);
+	    optionText.color = 0xFFFFFFFF
+		optionText.screenCenter();
+		optionText.y += (92 * (num - (options.length / 2))) + 45;
+		grpOptions.add(optionText);
 		}
 
 		selectorLeft = new Alphabet(0, 0, '>', true);
